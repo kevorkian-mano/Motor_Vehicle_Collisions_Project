@@ -7,12 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1UK9vFCahXrsqw1JO0YTvsdzSSdIHK_tj
 """
 
-!pip install dash==2.15.0 dash-bootstrap-components pyngrok plotly pandas
-
-from pyngrok import ngrok
-
-# paste your token:
-ngrok.set_auth_token("35jlMIAQ9iGTyEofWeKlw7dJuPe_5X87UVU6JDUwEnvNKMmoc")
 
 # app_nyc_crash_dashboard.py
 import ast
@@ -23,15 +17,14 @@ from dash import dcc, html, Input, Output, State
 import dash_bootstrap_components as dbc
 import plotly.express as px
 import plotly.graph_objects as go
-from pyngrok import ngrok # optional - for local tunneling
 import re
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import plotly.figure_factory as ff
 
 #df = pd.read_csv("merged_cleaned_dataset.csv", dtype=str) # load as strings to be safe
-# Load dataset from Google Drive
-df = pd.read_csv("https://drive.google.com/uc?export=download&id=1-hKQcBXvIYuqXUyLfjTKp6DXinVtOss2", dtype=str)
+# Load dataset from Kaggle
+df = pd.read_csv("https://www.kaggle.com/api/v1/datasets/lamaaa/nyc-dashboard/download", dtype=str)
 
 # Clean borough names to proper capitalization
 borough_mapping = {
@@ -1194,8 +1187,5 @@ def clear_all_filters(n_clicks):
         ""     # search_input
     )
 
-ngrok.kill()
-public_url = ngrok.connect(8050)
-print("Dashboard running on:", public_url)
 
-app.run_server(port=8050)
+
