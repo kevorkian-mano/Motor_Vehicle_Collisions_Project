@@ -1,7 +1,9 @@
-dash==2.14.1
-dash-bootstrap-components==1.5.0
-pandas==2.0.3
-plotly==5.15.0
-numpy==1.24.3
-gunicorn==21.2.0
-scikit-learn==1.3.2
+dash
+dash-bootstrap-components  
+pandas
+plotly
+numpy
+gunicorn
+scikit-learn
+requests==2.31.0
+beautifulsoup4==4.12.2
